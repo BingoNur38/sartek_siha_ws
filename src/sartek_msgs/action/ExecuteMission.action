@@ -1,0 +1,17 @@
+# ExecuteMission.action
+# Central Coordinator tarafından görev işçilerine (patrol, qr, dogfight, evasion) gönderilir
+
+# Goal
+string  mission_type            # "PATROL", "QR", "DOGFIGHT", "EVASION"
+float64 param1                  # Opsiyonel parametre (örn: hedef enlem veya yarıçap)
+float64 param2                  # Opsiyonel parametre (örn: hedef boylam)
+float64 param3                  # Opsiyonel parametre (örn: hedef irtifa)
+---
+# Result
+bool    success                 # Görev başarıyla tamamlandıysa true, başarısız/preempt ise false
+string  message                 # Sonuç detayı
+---
+# Feedback
+float32 progress                # 0.0 - 100.0 yüzde
+string  current_state           # İşçinin iç durumu (örn: "SEARCHING", "TRACKING_LOCK")
+float64 distance_to_goal        # Hedefe kalan mesafe

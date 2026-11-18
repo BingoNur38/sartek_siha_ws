@@ -1,0 +1,16 @@
+material Yunuseli/Satellite
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        // Doku dosyasının yolu
+        texture ../textures/yunuseli_uydu.png
+        // Işıklandırmadan etkilenmesin, renkler net görünsün
+        lighting off
+      }
+    }
+  }
+}

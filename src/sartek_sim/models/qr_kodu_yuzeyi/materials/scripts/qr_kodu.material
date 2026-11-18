@@ -1,0 +1,15 @@
+material QrCodeMaterial
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        // Doku dosyasının yolu artık materyal betiğine göreceli
+        texture ../textures/qrcode.png
+        lighting off
+      }
+    }
+  }
+}
