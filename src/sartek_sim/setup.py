@@ -47,6 +47,8 @@ setup(
         ],
     },
     entry_points={
-        'console_scripts': [],
+        'console_scripts': [
+            'target_offboard = sartek_sim.target_offboard:main',
+        ],
     },
 )

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.9">
+  <world name="sartek_yarisma">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic"/>
+
+    <scene>
+      <grid>false</grid>
+      <ambient>0.45 0.45 0.45 1</ambient>
+      <background>0.68 0.88 1.0 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>40.233243</latitude_deg>
+      <longitude_deg>29.005583</longitude_deg>
+      <elevation>101.0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+
+    <light name="sun" type="directional">
+      <pose>0 0 500 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <diffuse>0.85 0.85 0.85 1</diffuse>
+      <specular>0.25 0.25 0.25 1</specular>
+      <direction>-0.5 0.1 -1</direction>
+      <attenuation>
+        <range>2000</range>
+        <linear>0</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- ============================================================ -->
+    <!-- 1. ZEMIN VE QR KAMIKAZE HEDEFI (Workspace Modelleri)          -->
+    <!-- ============================================================ -->
+    <include>
+      <uri>model://yunuseli_zemin</uri>
+      <name>havalimani_zemini</name>
+      <pose>0 -150 0.05 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://qr_kodu_yuzeyi</uri>
+      <name>qr_kodu_alani</name>
+      <pose>86.463 -276.128 0.1 0 0 0</pose>
+    </include>
+
+    <!-- ============================================================ -->
+    <!-- 2. PIST GORSEL ISARETLERI (Carpismasiz / Visual-only)         -->
+    <!--    Kalkis koridoru: X in [-60, +380], Y in [-60, +90] acik    -->
+    <!-- ============================================================ -->
+    <model name="ana_pist_isaretleri">
+      <static>true</static>
+      <pose>140 0 0.06 0 0 0</pose>
+      <link name="pist_link">
+        <!-- Asfalt pist gorunumu -->
+        <visual name="pist_asfalt">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>420 22</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.18 0.18 0.20 1</ambient>
+            <diffuse>0.22 0.22 0.24 1</diffuse>
+          </material>
+        </visual>
+        <!-- Pist kenar beyaz cizgileri -->
+        <visual name="kenar_kuzey">
+          <pose>0 10.2 0.01 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>418 0.5</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name="kenar_guney">
+          <pose>0 -10.2 0.01 0 0 0</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>418 0.5</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <!-- Pist orta kesikli cizgiler -->
+        <visual name="orta_1">
+          <pose>-150 0 0.01 0 0 0</pose>
+          <geometry><plane><normal>0 0 1</normal><size>24 0.6</size></plane></geometry>
+          <material><ambient>1 0.85 0.1 1</ambient><diffuse>1 0.85 0.1 1</diffuse></material>
+        </visual>
+        <visual name="orta_2">
+          <pose>-90 0 0.01 0 0 0</pose>
+          <geometry><plane><normal>0 0 1</normal><size>24 0.6</size></plane></geometry>
+          <material><ambient>1 0.85 0.1 1</ambient><diffuse>1 0.85 0.1 1</diffuse></material>
+        </visual>
+        <visual name="orta_3">
+          <pose>-30 0 0.01 0 0 0</pose>
+          <geometry><plane><normal>0 0 1</normal><size>24 0.6</size></plane></geometry>
+          <material><ambient>1 0.85 0.1 1</ambient><diffuse>1 0.85 0.1 1</diffuse></material>
+        </visual>
+        <visual name="orta_4">
+          <pose>30 0 0.01 0 0 0</pose>
+          <geometry><plane><normal>0 0 1</normal><size>24 0.6</size></plane></geometry>
+          <material><ambient>1 0.85 0.1 1</ambient><diffuse>1 0.85 0.1 1</diffuse></material>
+        </visual>
+        <visual name="orta_5">
+          <pose>90 0 0.01 0 0 0</pose>
+          <geometry><plane><normal>0 0 1</normal><size>24 0.6</size></plane></geometry>
+          <material><ambient>1 0.85 0.1 1</ambient><diffuse>1 0.85 0.1 1</diffuse></material>
+        </visual>
+        <visual name="orta_6">
+          <pose>150 0 0.01 0 0 0</pose>
+          <geometry><plane><normal>0 0 1</normal><size>24 0.6</size></plane></geometry>
+          <material><ambient>1 0.85 0.1 1</ambient><diffuse>1 0.85 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============================================================ -->
+    <!-- 3. REFERANS YER SEKILLERI: HANGARLAR VE KONTROL KULESI        -->
+    <!--    (Pistin guvenli guney tarafinda: Y = -110 civari)          -->
+    <!-- ============================================================ -->
+    <model name="hangar_1">
+      <static>true</static>
+      <pose>20 -115 0.05 0 0 0</pose>
+      <link name="link">
+        <collision name="govde_col">
+          <pose>0 0 5 0 0 0</pose>
+          <geometry><box><size>30 18 10</size></box></geometry>
+        </collision>
+        <visual name="govde_vis">
+          <pose>0 0 5 0 0 0</pose>
+          <geometry><box><size>30 18 10</size></box></geometry>
+          <material>
+            <ambient>0.75 0.77 0.80 1</ambient>
+            <diffuse>0.78 0.80 0.82 1</diffuse>
+          </material>
+        </visual>
+        <visual name="cati_vis">
+          <pose>0 0 10.6 0 0 0</pose>
+          <geometry><box><size>31 19 1.2</size></box></geometry>
+          <material>
+            <ambient>0.65 0.18 0.15 1</ambient>
+            <diffuse>0.72 0.20 0.16 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="hangar_2">
+      <static>true</static>
+      <pose>65 -115 0.05 0 0 0</pose>
+      <link name="link">
+        <collision name="govde_col">
+          <pose>0 0 5 0 0 0</pose>
+          <geometry><box><size>30 18 10</size></box></geometry>
+        </collision>
+        <visual name="govde_vis">
+          <pose>0 0 5 0 0 0</pose>
+          <geometry><box><size>30 18 10</size></box></geometry>
+          <material>
+            <ambient>0.72 0.74 0.78 1</ambient>
+            <diffuse>0.76 0.78 0.80 1</diffuse>
+          </material>
+        </visual>
+        <visual name="cati_vis">
+          <pose>0 0 10.6 0 0 0</pose>
+          <geometry><box><size>31 19 1.2</size></box></geometry>
+          <material>
+            <ambient>0.18 0.35 0.62 1</ambient>
+            <diffuse>0.20 0.40 0.70 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="kontrol_kulesi">
+      <static>true</static>
+      <pose>-35 -110 0.05 0 0 0</pose>
+      <link name="link">
+        <collision name="kule_govde_col">
+          <pose>0 0 11 0 0 0</pose>
+          <geometry><cylinder><radius>3.2</radius><length>22</length></cylinder></geometry>
+        </collision>
+        <visual name="kule_alt">
+          <pose>0 0 7 0 0 0</pose>
+          <geometry><cylinder><radius>3.2</radius><length>14</length></cylinder></geometry>
+          <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.92 0.92 0.92 1</diffuse></material>
+        </visual>
+        <visual name="kule_serit">
+          <pose>0 0 16 0 0 0</pose>
+          <geometry><cylinder><radius>3.3</radius><length>4</length></cylinder></geometry>
+          <material><ambient>0.85 0.15 0.1 1</ambient><diffuse>0.9 0.15 0.1 1</diffuse></material>
+        </visual>
+        <visual name="kule_kabin">
+          <pose>0 0 20 0 0 0</pose>
+          <geometry><cylinder><radius>5.0</radius><length>4.0</length></cylinder></geometry>
+          <material><ambient>0.15 0.30 0.45 0.9</ambient><diffuse>0.2 0.4 0.55 0.9</diffuse></material>
+        </visual>
+        <visual name="kule_cati">
+          <pose>0 0 22.6 0 0 0</pose>
+          <geometry><cylinder><radius>5.5</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>0.85 0.15 0.1 1</ambient><diffuse>0.9 0.15 0.1 1</diffuse></material>
+        </visual>
+        <visual name="kule_anten">
+          <pose>0 0 26 0 0 0</pose>
+          <geometry><cylinder><radius>0.25</radius><length>6.0</length></cylinder></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============================================================ -->
+    <!-- 4. SAHA SINIR REFERANS PYLONLARI (Turuncu-Beyaz Direkler)     -->
+    <!-- ============================================================ -->
+    <model name="referans_pylon_1">
+      <static>true</static>
+      <pose>-80 120 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="alt">
+          <pose>0 0 6 0 0 0</pose>
+          <geometry><cylinder><radius>1.2</radius><length>12</length></cylinder></geometry>
+          <material><ambient>1.0 0.45 0.0 1</ambient><diffuse>1.0 0.5 0.0 1</diffuse></material>
+        </visual>
+        <visual name="ust">
+          <pose>0 0 15 0 0 0</pose>
+          <geometry><cylinder><radius>1.2</radius><length>6</length></cylinder></geometry>
+          <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="referans_pylon_2">
+      <static>true</static>
+      <pose>320 120 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="alt">
+          <pose>0 0 6 0 0 0</pose>
+          <geometry><cylinder><radius>1.2</radius><length>12</length></cylinder></geometry>
+          <material><ambient>1.0 0.45 0.0 1</ambient><diffuse>1.0 0.5 0.0 1</diffuse></material>
+        </visual>
+        <visual name="ust">
+          <pose>0 0 15 0 0 0</pose>
+          <geometry><cylinder><radius>1.2</radius><length>6</length></cylinder></geometry>
+          <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="referans_pylon_3">
+      <static>true</static>
+      <pose>320 -120 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="alt">
+          <pose>0 0 6 0 0 0</pose>
+          <geometry><cylinder><radius>1.2</radius><length>12</length></cylinder></geometry>
+          <material><ambient>1.0 0.45 0.0 1</ambient><diffuse>1.0 0.5 0.0 1</diffuse></material>
+        </visual>
+        <visual name="ust">
+          <pose>0 0 15 0 0 0</pose>
+          <geometry><cylinder><radius>1.2</radius><length>6</length></cylinder></geometry>
+          <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============================================================ -->
+    <!-- 5. DOGAL YER SEKILLERI: TEPELER VE AGAC KUMELERI              -->
+    <!-- ============================================================ -->
+    <model name="tepe_kuzeybati">
+      <static>true</static>
+      <pose>-280 260 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="tepe_vis">
+          <pose>0 0 18 0 0 0</pose>
+          <geometry><cone><radius>95</radius><length>36</length></cone></geometry>
+          <material><ambient>0.26 0.42 0.22 1</ambient><diffuse>0.30 0.48 0.25 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="tepe_kuzeydogu">
+      <static>true</static>
+      <pose>480 240 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="tepe_vis">
+          <pose>0 0 22 0 0 0</pose>
+          <geometry><cone><radius>110</radius><length>44</length></cone></geometry>
+          <material><ambient>0.24 0.39 0.20 1</ambient><diffuse>0.28 0.45 0.23 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="tepe_guneydogu">
+      <static>true</static>
+      <pose>420 -340 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="tepe_vis">
+          <pose>0 0 16 0 0 0</pose>
+          <geometry><cone><radius>85</radius><length>32</length></cone></geometry>
+          <material><ambient>0.32 0.44 0.24 1</ambient><diffuse>0.36 0.49 0.27 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Agac kumesi (kuzey kenar referansi) -->
+    <model name="agac_kumesi_kuzey">
+      <static>true</static>
+      <pose>120 155 0.05 0 0 0</pose>
+      <link name="link">
+        <visual name="g1"><pose>0 0 3 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>6</length></cylinder></geometry><material><ambient>0.35 0.22 0.10 1</ambient><diffuse>0.4 0.25 0.12 1</diffuse></material></visual>
+        <visual name="y1"><pose>0 0 9 0 0 0</pose><geometry><cone><radius>4.5</radius><length>9</length></cone></geometry><material><ambient>0.12 0.38 0.14 1</ambient><diffuse>0.15 0.45 0.18 1</diffuse></material></visual>
+
+        <visual name="g2"><pose>14 6 3 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>6</length></cylinder></geometry><material><ambient>0.35 0.22 0.10 1</ambient><diffuse>0.4 0.25 0.12 1</diffuse></material></visual>
+        <visual name="y2"><pose>14 6 9.5 0 0 0</pose><geometry><cone><radius>5.0</radius><length>10</length></cone></geometry><material><ambient>0.14 0.42 0.15 1</ambient><diffuse>0.18 0.48 0.20 1</diffuse></material></visual>
+
+        <visual name="g3"><pose>-12 8 3 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>6</length></cylinder></geometry><material><ambient>0.35 0.22 0.10 1</ambient><diffuse>0.4 0.25 0.12 1</diffuse></material></visual>
+        <visual name="y3"><pose>-12 8 8.5 0 0 0</pose><geometry><cone><radius>4.2</radius><length>8</length></cone></geometry><material><ambient>0.10 0.35 0.12 1</ambient><diffuse>0.14 0.42 0.16 1</diffuse></material></visual>
+
+        <visual name="g4"><pose>28 -4 3 0 0 0</pose><geometry><cylinder><radius>0.7</radius><length>6</length></cylinder></geometry><material><ambient>0.35 0.22 0.10 1</ambient><diffuse>0.4 0.25 0.12 1</diffuse></material></visual>
+        <visual name="y4"><pose>28 -4 9 0 0 0</pose><geometry><cone><radius>4.6</radius><length>9</length></cone></geometry><material><ambient>0.13 0.40 0.15 1</ambient><diffuse>0.16 0.46 0.19 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- QR Alani Cevre Isaretleri (QR'i kapatmadan dis kose referanslari) -->
+    <model name="qr_cevre_isaretleri">
+      <static>true</static>
+      <pose>86.463 -276.128 0.1 0 0 0</pose>
+      <link name="link">
+        <visual name="kose_1">
+          <pose>2.5 2.5 0.4 0 0 0</pose>
+          <geometry><box><size>0.6 0.6 0.8</size></box></geometry>
+          <material><ambient>0.95 0.15 0.1 1</ambient><diffuse>0.95 0.15 0.1 1</diffuse></material>
+        </visual>
+        <visual name="kose_2">
+          <pose>-2.5 2.5 0.4 0 0 0</pose>
+          <geometry><box><size>0.6 0.6 0.8</size></box></geometry>
+          <material><ambient>0.95 0.15 0.1 1</ambient><diffuse>0.95 0.15 0.1 1</diffuse></material>
+        </visual>
+        <visual name="kose_3">
+          <pose>2.5 -2.5 0.4 0 0 0</pose>
+          <geometry><box><size>0.6 0.6 0.8</size></box></geometry>
+          <material><ambient>0.95 0.15 0.1 1</ambient><diffuse>0.95 0.15 0.1 1</diffuse></material>
+        </visual>
+        <visual name="kose_4">
+          <pose>-2.5 -2.5 0.4 0 0 0</pose>
+          <geometry><box><size>0.6 0.6 0.8</size></box></geometry>
+          <material><ambient>0.95 0.15 0.1 1</ambient><diffuse>0.95 0.15 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
