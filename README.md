@@ -14,8 +14,10 @@ Teknofest Savaşan İHA yarışması için **ROS 2 Humble**, **PX4 Micro XRCE-DD
 
 | Doküman | Ne Zaman Kullanılır? |
 |---|---|
+| **[TUTORIAL.md](TUTORIAL.md)** | **Hızlı başlangıç:** Repoyu klonlama, derleme ve **5+1 Çoklu İHA Simülasyonunu** adım adım çalıştırma |
 | **[README.md](README.md)** *(bu dosya)* | İlk kurulum, çakışma kontrolleri, GitHub klon/push ve genel mimari |
 | **[ws_rehber.md](ws_rehber.md)** | Günlük kullanım el kitabı: klasör yapısı, simülasyon + köprü başlatma ve terminal test komutları |
+| **[src/sartek_sim/MULTI_SIM_REHBER.md](src/sartek_sim/MULTI_SIM_REHBER.md)** | `AV-15` 5+1 çoklu İHA simülasyonu teknik detayları ve isim uzayları |
 | **[INSTALLATION.md](INSTALLATION.md)** | Hiç ROS 2 / Agent kurulmamış sıfır Ubuntu 22.04 görev bilgisayarı kurulumu |
 | **[PX4_SIM_KURULUM.md](PX4_SIM_KURULUM.md)** | Gazebo Harmonic, `PX4-Autopilot` SITL ve QGroundControl kurulumu |
 
